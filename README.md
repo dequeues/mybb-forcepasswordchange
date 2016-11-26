@@ -1,6 +1,5 @@
-# Force Password Change 
-
 **Note:** This plugin is not maintained. It was updated to the MyBB 1.8 series only.
+# Force Password Change 
 
 ## Description
 This plugin allows admins to force a single user to change their password or force one or more usergroups to change their passwords.

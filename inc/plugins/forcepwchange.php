@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Force Password Change Plugin 1.2
+ * Force Password Change Plugin 1.3
  * Author: Will Pillar
  * Copyright 2010 Will Pillar, All Rights Reserved
  */
@@ -19,18 +19,18 @@ $plugins->add_hook("usercp_do_password_end", "forcepwchange_password_changed");
 $plugins->add_hook('usercp_password', 'forcepwchange_alert_handler');
 
 function forcepwchange_info() {
-    $version = '1.2';
+    $version = '1.3';
     $plugin = 'Force Password Change';
     $author = 'Will Pillar';
     return array(
             "name"		=> $plugin,
-            "description"	=> "A plugin which allows an Admin to force a single user and one or more usergroups to change their password.",
-            "website"           => "http://mybb.willpillar.com",
+            "description"	=> "A plugin which allows an Admin to force a single user and one or more usergroups to change their password.<br />Updated to work with MyBB 1.8 series by <a href=\"https://github.com/dequeues/mybb-forcepasswordchange\">dequeues</a>",
+            "website"           => "https://github.com/dequeues/mybb-forcepasswordchange",
             "author"		=> $author,
             "authorsite"	=> "http://willpillar.com",
             "version"		=> $version,
             "guid" 		=> "10bfc5251a4e99c6518a8cea54d8d86a",
-            "compatibility"     => "165"
+            "compatibility"     => "18*"
     );
 }
 
@@ -150,9 +150,7 @@ function forcepwchange_check_changed() {
 
 function forcepwchange_password_changed() {
     global $db, $mybb;
-
-    $user = $mybb->user['uid'];
-    $db->query("UPDATE ".TABLE_PREFIX."users SET forcepwchange=0 WHERE uid='".$user."'");
+		$db->update_query("users", array("forcepwchange" => 0), "uid='{$mybb->user['uid']}'");
 }
 
 function forcepwchange_alert_handler() {

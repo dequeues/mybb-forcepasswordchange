@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Force Password Change Plugin 1.1
+ * Force Password Change Plugin 1.3
  * Author: Will Pillar
  * Copyright 2010 Will Pillar, All Rights Reserved.
  */
@@ -10,7 +10,7 @@ if(!defined("IN_MYBB")) {
     die("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
 }
 
-$lang->load("forcepwchange_admin");
+$lang->load("forcepwchange");
 
 $page->add_breadcrumb_item($lang->forcepwchange_plugin_name, "index.php?module=user-forcepwchange");
 

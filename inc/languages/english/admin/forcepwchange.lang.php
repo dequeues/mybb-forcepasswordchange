@@ -1,7 +1,7 @@
 <?php
 /* 
- * Force Password Change 1.1
- * MyBB 1.6 Plugin
+ * Force Password Change 1.3
+ * MyBB 1.8 Plugin
  * Author: Will Pillar
  * Copyright 2010 Will Pillar, All Rights Reserved.
  */
@@ -29,6 +29,8 @@ $l['forcepwchange_admin_field_desc_username'] = "Please enter the username of th
 $l['forcepwchange_admin_submit'] = "Submit";
 
 $l['forcepwchange_admin_usergroups'] = "Usergroups";
-$l['forcepwchange_admin_usergroups_desc'] = "Select which usergroups you'd like to force a password change on. Use CTRL to select multiple."
+$l['forcepwchange_admin_usergroups_desc'] = "Select which usergroups you'd like to force a password change on. Use CTRL to select multiple.";
+
+$l['forcepwchange_user_message'] = "The Administrator is forcing you to change your password. You cannot use the rest of the forum until your password is changed.";
 
 ?>

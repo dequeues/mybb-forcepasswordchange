@@ -106,8 +106,6 @@ if($mybb->input['action'] == "forcepwchange_awaitingchange") {
 
         $form_container->output_cell($popup->fetch(), array("class" => "align_center"));
 
-        $form_container->construct_row();
-
     }
 
     $form_container->end();
@@ -130,8 +128,6 @@ if($mybb->input['action'] == "forcepwchange_forcegroup") {
 
     $form_container->output_row('','',"<p style=\"font-weight:bold;color:#AB1D2E;\">Note: Usergroups with a large number of users may take a while to process, so don't be alarmed if it takes a long time
         before you see the success message.</p>");
-
-    $form_container->construct_row();
 
     $form_container->end();
 
@@ -158,8 +154,6 @@ if(!$mybb->input['action']) {
 
     $form_container->output_row($lang->forcepwchange_admin_field_username." <em>*</em>",$lang->forcepwchange_admin_field_desc_username,
             $form->generate_text_box('username', $mybb->input['username'], array('id' => 'username')), 'username');
-
-    $form_container->construct_row();
 
     $form_container->end();
 

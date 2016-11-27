@@ -151,6 +151,8 @@ function forcepwchange_check_changed() {
 function forcepwchange_password_changed() {
     global $db, $mybb;
 		$db->update_query("users", array("forcepwchange" => 0), "uid='{$mybb->user['uid']}'");
+    
+    redirect("index.php", "Your password has been changed successfully", "Success", true);
 }
 
 function forcepwchange_alert_handler() {

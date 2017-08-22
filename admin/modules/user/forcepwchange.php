@@ -88,13 +88,18 @@ if($mybb->input['action'] == "forcepwchange_do_force_group") {
 
 if($mybb->input['action'] == "forcepwchange_awaitingchange") {
 
+    
+    $options = array(
+              "order_by" => 'username'
+           );
+
+    $query = $db->simple_select("users", "uid, username", "forcepwchange=1",$options);   
+    
     $form = new Form("index.php?module=user-forcepwchange_awaitingchange", "post");
 
-    $form_container = new FormContainer($lang->forcepwchange_admin_table_heading_awaiting);
+    $form_container = new FormContainer($lang->forcepwchange_admin_table_heading_awaiting." ( ".$query->num_rows." )" );
     $form_container->output_row_header($lang->forcepwchange_admin_row_username, array('class' => 'align_left', width => '75%'));
-    $form_container->output_row_header($lang->forcepwchange_admin_row_options, array('class' => 'align_center'));
-
-    $query = $db->simple_select("users", "uid, username", "forcepwchange=1");
+    $form_container->output_row_header($lang->forcepwchange_admin_row_options, array('class' => 'align_center'));    
 
     while($users = $db->fetch_array($query)) {
 
@@ -106,6 +111,7 @@ if($mybb->input['action'] == "forcepwchange_awaitingchange") {
 
         $form_container->output_cell($popup->fetch(), array("class" => "align_center"));
 
+	$form_container->construct_row();
     }
 
     $form_container->end();

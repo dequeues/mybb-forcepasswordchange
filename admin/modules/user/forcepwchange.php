@@ -90,10 +90,10 @@ if($mybb->input['action'] == "forcepwchange_awaitingchange") {
 
     
     $options = array(
-              "order_by" => 'username'
-           );
+	    "order_by" => 'username'
+    );
 
-    $query = $db->simple_select("users", "uid, username", "forcepwchange=1",$options);   
+    $query = $db->simple_select("users", "uid, username", "forcepwchange=1", $options);   
     
     $form = new Form("index.php?module=user-forcepwchange_awaitingchange", "post");
 
